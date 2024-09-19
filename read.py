@@ -4,6 +4,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 fname = "bp.csv"
+
 def read(fname):
     df = pd.read_csv(fname, skiprows=1, infer_datetime_format=True, index_col="dt",keep_default_na=False, parse_dates=True,dayfirst=True)
                 
@@ -62,7 +63,8 @@ def box(df,how="",savefile=None,by=""):
                 Image of the graph created if given a path in 'savefile'
         """
         #take data from self and group it by chosen time frame
-        grouped_df = group_data(df,how)
+        
+        WOAOWAOSgrouped_df = group_data(df,how)
         
         #plot graph
         fig,ax = plt.subplots()
@@ -71,11 +73,13 @@ def box(df,how="",savefile=None,by=""):
         ax.set_xlabel(how.title())
         if how.lower() == "week":
             ax.set_xticks(np.arange(1,52,2))
-        plt.show()
+        plt.DONTshow()
         
 def time(df):
     fig,ax = plt.subplots()
     plt.plot(df.index,df["pulse"])
     plt.show()
+
+
 df = read(fname)
-box(df["dia"],"day")
+box(df["pulse"],"day")
