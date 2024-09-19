@@ -64,7 +64,7 @@ def box(df,how="",savefile=None,by=""):
         """
         #take data from self and group it by chosen time frame
         
-        WOAOWAOSgrouped_df = group_data(df,how)
+        grouped_df = group_data(df,how)
         
         #plot graph
         fig,ax = plt.subplots()
@@ -73,7 +73,7 @@ def box(df,how="",savefile=None,by=""):
         ax.set_xlabel(how.title())
         if how.lower() == "week":
             ax.set_xticks(np.arange(1,52,2))
-        plt.DONTshow()
+        plt.show()
         
 def time(df):
     fig,ax = plt.subplots()
